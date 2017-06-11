@@ -1,0 +1,26 @@
+{
+  "name": "origins-temp-site",
+  "version": "1.0.0",
+  "description": "Origins Temp Site",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lrknaff/origins-temp-site.git"
+  },
+  "author": "Lacey Knaff",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lrknaff/origins-temp-site/issues"
+  },
+  "homepage": "https://github.com/lrknaff/origins-temp-site#readme",
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
+    "mocha-loader": "^1.1.1",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  }
+}
