@@ -1,6 +1,16 @@
-.hero {
+.hero { 
   background-image: url('/lib/images/main-hero.png');
   background-size: cover;
   height: 100vh;
   position: relative;
+}
+
+.intro {
+  .intro-copy {
+    column-count: 2;
+      -webkit-column-count: 2;
+        -moz-column-count: 2;
+    position: relative;
+    width: 100%;
+  }
 }
