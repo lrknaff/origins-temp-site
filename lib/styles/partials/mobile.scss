@@ -1,0 +1,51 @@
+@media (max-width: 880px) {
+  .hero-copy {
+    h1 {
+      font-size: 2em;
+    }
+  }
+
+  h2 {
+    font-size: 1.75em;
+  }
+}
+
+@media (max-width: 781px) {
+
+  footer {
+    .footer-left-container {
+      float: none;
+      width: 100%;
+      margin-bottom: 25px;
+
+      .origin-logo-mark {
+        position: relative;
+      }
+    }
+
+    .footer-right-container {
+      float: none;
+      width: 100%;
+    }
+  }
+}
+
+
+@media (max-width: 680px) {
+  .hero-copy {
+    h1 {
+      width: 65%;
+    }
+  }
+
+  .intro-wrapper {
+
+    .intro-copy {
+      column-count: 1;
+    }
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+}
