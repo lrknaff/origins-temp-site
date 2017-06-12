@@ -99,6 +99,25 @@
     }
   }
 
+  .image-gallery-btn {
+    position: absolute;
+    bottom: 7%;
+    right: 5%;
+    cursor: pointer;
+
+    .photo-icon {
+      display: inline-block;
+      width: 30px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    h6 {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
 }
 
 footer {

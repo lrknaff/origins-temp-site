@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="21px" viewBox="0 0 27 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>photo-icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="landing-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Desktop-HD-R3-1" transform="translate(-1280.000000, -2285.000000)" fill="#FFFFFF">
+            <g id="location" transform="translate(-36.000000, 1480.000000)">
+                <g id="photos_CTA" transform="translate(1316.000000, 802.000000)">
+                    <g id="photo-icon" transform="translate(0.000000, 3.000000)">
+                        <g id="Page-1">
+                            <path d="M0,21 L27,21 L27,0 L0,0 L0,21 Z M1.56315789,1.54889344 L25.4652632,1.54889344 L25.4652632,10.7008197 L19.0421053,5.76639344 L11.9652632,12.8237705 L6.99157895,10.0122951 L1.56315789,14.3445492 L1.56315789,1.54889344 Z" id="Fill-1"></path>
+                            <path d="M5,4 C6.10441176,4 7,4.89529412 7,6 C7,7.10470588 6.10441176,8 5,8 C3.89558824,8 3,7.10470588 3,6 C3,4.89529412 3.89558824,4 5,4" id="Fill-2"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
