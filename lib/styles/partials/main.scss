@@ -67,7 +67,7 @@
     margin-bottom: 7%;
 
     .collection-description {
-      bottom: 15px;
+      bottom: 0;
       height: 100px;
       left: 0;
       margin: auto;
@@ -102,9 +102,20 @@
 }
 
 footer {
+  overflow: auto;
   padding: 0 7% 7% 7%;
 
-  .origin-logo-mark {
-    width: 65px;
+  .footer-left-container {
+    float: left;
+    width: 50%;
+
+    .origin-logo-mark {
+      width: 65px;
+    }
+  }
+
+  .footer-right-container {
+    float: right;
+    width: 50%;
   }
 }
