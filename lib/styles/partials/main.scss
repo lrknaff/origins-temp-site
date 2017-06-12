@@ -75,7 +75,7 @@
       right: 0;
       text-align: center;
       top: 0;
-      width: 50%;
+      width: 100%;
 
       .origin-logotype {
         display: inline-block;
@@ -139,7 +139,7 @@ footer {
     input[type="email"] {
       background-color: $light-grey;
       border: none;
-      border-radius: 0;
+        border-radius: 0;
       margin-bottom: 20px;
       padding: 15px;
       width: 100%;
