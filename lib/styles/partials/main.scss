@@ -1,0 +1,123 @@
+.hero-wrapper {
+  background-size: 100vw;
+  color: white;
+  max-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+
+  .hero-copy {
+    bottom: 20px;
+    padding: 7%;
+    position: absolute;
+
+    .origin-logo-mark {
+      display: inline-block;
+      margin-right: 15px;
+      width: 80px;
+      vertical-align: middle;
+    }
+
+    h1 {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+.intro-wrapper {
+  padding: 7%;
+
+  .intro-copy {
+    column-count: 2;
+      -webkit-column-count: 2;
+        -moz-column-count: 2;
+    column-gap: 50px;
+      -webkit-column-gap: 50px;
+        -moz-column-gap: 50px;
+    position: relative;
+    width: 100%;
+  }
+}
+
+.the-collection-container {
+
+  .collection-header {
+    padding: 0 7%;
+
+    h2 {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .down-arrow {
+      display: inline-block;
+      margin-top: 10px;
+      vertical-align: top;
+    }
+  }
+
+  .collection-hero {
+    margin-bottom: 7%;
+
+    .collection-description {
+      bottom: 0;
+      height: 100px;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 0;
+      width: 50%;
+
+      .origin-logotype {
+        display: inline-block;
+        width: 165px;
+        vertical-align: middle;
+      }
+
+      hr {
+        display: inline-block;
+        height: 75px;
+        margin: 0 10px;
+        width: 5px;
+        vertical-align: middle;
+      }
+
+      .origin-location-copy {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
+  }
+
+}
+
+footer {
+  overflow: auto;
+  padding: 0 7% 7% 7%;
+
+  .footer-left-container {
+    float: left;
+    width: 50%;
+
+    .origin-logo-mark {
+      width: 65px;
+    }
+  }
+
+  .footer-right-container {
+    float: right;
+    width: 50%;
+  }
+}
+
+/* mailchimp form */
