@@ -50,11 +50,55 @@
 
   .collection-header {
     padding: 0 7%;
+
+    h2 {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .down-arrow {
+      display: inline-block;
+      margin-top: 10px;
+      vertical-align: top;
+    }
   }
 
   .collection-hero {
     margin-bottom: 7%;
+
+    .collection-description {
+      bottom: 15px;
+      height: 100px;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 0;
+      width: 50%;
+
+      .origin-logotype {
+        display: inline-block;
+        width: 165px;
+        vertical-align: middle;
+      }
+
+      hr {
+        display: inline-block;
+        height: 75px;
+        margin: 0 10px;
+        width: 5px;
+        vertical-align: middle;
+      }
+
+      .origin-location-copy {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+      }
+    }
   }
+
 }
 
 footer {
