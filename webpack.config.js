@@ -16,7 +16,7 @@ module.exports = {
   },
   module: {
     rules: [
-      // { test: /\.jsx?$/, exclude: '/node_modules/', loader: 'babel-loader' },
+      { test: /\.jsx?$/, exclude: '/node_modules/', loader: 'babel-loader' },
       { test: /\.css$/, loader: "css-loader" },
       { test: /\.scss$/, use: [{
                 loader: "style-loader" // creates style nodes from JS strings

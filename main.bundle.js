@@ -63,26 +63,17 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
-
-module.exports = () => {
-  alert('This sucks!!!')
-};
-
-
-/***/ }),
-/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(3);
+var content = __webpack_require__(4);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -107,32 +98,13 @@ if(false) {
 }
 
 /***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(0);
+
+/***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
-
-__webpack_require__(1);
-
-let newAlert = __webpack_require__(0);
-
-newAlert();
-
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(4)(undefined);
-// imports
-
-
-// module
-exports.push([module.i, "body {\n  color: red; }\n", ""]);
-
-// exports
-
-
-/***/ }),
-/* 4 */
 /***/ (function(module, exports) {
 
 /*
@@ -140,14 +112,14 @@ exports.push([module.i, "body {\n  color: red; }\n", ""]);
 	Author Tobias Koppers @sokra
 */
 // css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
+module.exports = function (useSourceMap) {
 	var list = [];
 
 	// return the list of modules as css string
 	list.toString = function toString() {
 		return this.map(function (item) {
 			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
+			if (item[2]) {
 				return "@media " + item[2] + "{" + content + "}";
 			} else {
 				return content;
@@ -156,25 +128,23 @@ module.exports = function(useSourceMap) {
 	};
 
 	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
+	list.i = function (modules, mediaQuery) {
+		if (typeof modules === "string") modules = [[null, modules, ""]];
 		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
+		for (var i = 0; i < this.length; i++) {
 			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
+			if (typeof id === "number") alreadyImportedModules[id] = true;
 		}
-		for(i = 0; i < modules.length; i++) {
+		for (i = 0; i < modules.length; i++) {
 			var item = modules[i];
 			// skip already imported module
 			// this implementation is not 100% perfect for weird media query combinations
 			//  when a module is imported multiple times with different media queries.
 			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
+			if (typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if (mediaQuery && !item[2]) {
 					item[2] = mediaQuery;
-				} else if(mediaQuery) {
+				} else if (mediaQuery) {
 					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
 				}
 				list.push(item);
@@ -194,7 +164,7 @@ function cssWithMappingToString(item, useSourceMap) {
 	if (useSourceMap && typeof btoa === 'function') {
 		var sourceMapping = toComment(cssMapping);
 		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */';
 		});
 
 		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
@@ -211,6 +181,112 @@ function toComment(sourceMap) {
 
 	return '/*# ' + data + ' */';
 }
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+
+/**
+ * When source maps are enabled, `style-loader` uses a link element with a data-uri to
+ * embed the css on the page. This breaks all relative urls because now they are relative to a
+ * bundle instead of the current page.
+ *
+ * One solution is to only use full urls, but that may be impossible.
+ *
+ * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
+ *
+ * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
+ *
+ */
+
+module.exports = function (css) {
+	// get current location
+	var location = typeof window !== "undefined" && window.location;
+
+	if (!location) {
+		throw new Error("fixUrls requires window.location");
+	}
+
+	// blank or null?
+	if (!css || typeof css !== "string") {
+		return css;
+	}
+
+	var baseUrl = location.protocol + "//" + location.host;
+	var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
+
+	// convert each url(...)
+	/*
+ This regular expression is just a way to recursively match brackets within
+ a string.
+ 	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
+    (  = Start a capturing group
+      (?:  = Start a non-capturing group
+          [^)(]  = Match anything that isn't a parentheses
+          |  = OR
+          \(  = Match a start parentheses
+              (?:  = Start another non-capturing groups
+                  [^)(]+  = Match anything that isn't a parentheses
+                  |  = OR
+                  \(  = Match a start parentheses
+                      [^)(]*  = Match anything that isn't a parentheses
+                  \)  = Match a end parentheses
+              )  = End Group
+              *\) = Match anything and then a close parens
+          )  = Close non-capturing group
+          *  = Match anything
+       )  = Close capturing group
+  \)  = Match a close parens
+ 	 /gi  = Get all matches, not the first.  Be case insensitive.
+  */
+	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function (fullMatch, origUrl) {
+		// strip quotes (if they exist)
+		var unquotedOrigUrl = origUrl.trim().replace(/^"(.*)"$/, function (o, $1) {
+			return $1;
+		}).replace(/^'(.*)'$/, function (o, $1) {
+			return $1;
+		});
+
+		// already a full url? no change
+		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
+			return fullMatch;
+		}
+
+		// convert the url to a full url
+		var newUrl;
+
+		if (unquotedOrigUrl.indexOf("//") === 0) {
+			//TODO: should we add protocol?
+			newUrl = unquotedOrigUrl;
+		} else if (unquotedOrigUrl.indexOf("/") === 0) {
+			// path should be relative to the base url
+			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
+		} else {
+			// path should be relative to current directory
+			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
+		}
+
+		// send back the fixed url(...)
+		return "url(" + JSON.stringify(newUrl) + ")";
+	});
+
+	// send back the fixed css
+	return fixedCss;
+};
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n/* colors */\nbody {\n  color: #3C3835;\n  font-family: 'Montserrat', sans-serif;\n  font-size: 100%;\n  line-height: 1.75; }\n\nh1 {\n  font-size: 3em;\n  letter-spacing: 0.05em; }\n\nh2 {\n  font-size: 2em;\n  letter-spacing: 0.1em;\n  padding-bottom: 35px;\n  text-transform: uppercase; }\n\nh3 {\n  font-size: 1.3em;\n  font-weight: 700;\n  letter-spacing: 0.1em;\n  line-height: 1.2;\n  text-transform: uppercase; }\n\np {\n  font-size: 1em; }\n\n.bold-copy {\n  font-weight: 700; }\n\n* {\n  box-sizing: border-box;\n  margin: 0; }\n\nhr {\n  background-color: #AB4224;\n  border-style: none;\n  height: 3px;\n  margin-bottom: 50px;\n  width: 75px; }\n\n.hero-wrapper {\n  background-size: 100vw;\n  color: white;\n  max-height: 100vh;\n  overflow: hidden;\n  position: relative;\n  width: 100%; }\n  .hero-wrapper .hero-image {\n    width: 100%;\n    height: auto;\n    position: relative; }\n  .hero-wrapper .hero-copy {\n    bottom: 20px;\n    padding: 7%;\n    position: absolute; }\n    .hero-wrapper .hero-copy .origin-logo-mark {\n      display: inline-block;\n      margin-right: 15px;\n      width: 80px;\n      vertical-align: middle; }\n    .hero-wrapper .hero-copy h1 {\n      display: inline-block;\n      vertical-align: middle; }\n\n.intro-wrapper {\n  padding: 7%; }\n  .intro-wrapper .intro-copy {\n    column-count: 2;\n    -webkit-column-count: 2;\n    -moz-column-count: 2;\n    column-gap: 50px;\n    -webkit-column-gap: 50px;\n    -moz-column-gap: 50px;\n    position: relative;\n    width: 100%; }\n\n.the-collection-container .collection-header {\n  padding: 0 7%; }\n  .the-collection-container .collection-header h2 {\n    display: inline-block;\n    vertical-align: top; }\n  .the-collection-container .collection-header .down-arrow {\n    display: inline-block;\n    margin-top: 10px;\n    vertical-align: top; }\n\n.the-collection-container .collection-hero {\n  margin-bottom: 7%; }\n  .the-collection-container .collection-hero .collection-description {\n    bottom: 0;\n    height: 100px;\n    left: 0;\n    margin: auto;\n    position: absolute;\n    right: 0;\n    text-align: center;\n    top: 0;\n    width: 50%; }\n    .the-collection-container .collection-hero .collection-description .origin-logotype {\n      display: inline-block;\n      width: 165px;\n      vertical-align: middle; }\n    .the-collection-container .collection-hero .collection-description hr {\n      display: inline-block;\n      height: 75px;\n      margin: 0 10px;\n      width: 5px;\n      vertical-align: middle; }\n    .the-collection-container .collection-hero .collection-description .origin-location-copy {\n      display: inline-block;\n      text-align: left;\n      vertical-align: middle; }\n\nfooter {\n  overflow: auto;\n  padding: 0 7% 7% 7%; }\n  footer .footer-left-container {\n    float: left;\n    width: 50%; }\n    footer .footer-left-container .origin-logo-mark {\n      width: 65px; }\n  footer .footer-right-container {\n    float: right;\n    width: 50%; }\n\n/* mailchimp form */\n", ""]);
+
+// exports
 
 
 /***/ }),
@@ -260,7 +336,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(6);
+var	fixUrls = __webpack_require__(3);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -570,101 +646,6 @@ function updateLink (link, options, obj) {
 
 	if(oldSrc) URL.revokeObjectURL(oldSrc);
 }
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-
-/**
- * When source maps are enabled, `style-loader` uses a link element with a data-uri to
- * embed the css on the page. This breaks all relative urls because now they are relative to a
- * bundle instead of the current page.
- *
- * One solution is to only use full urls, but that may be impossible.
- *
- * Instead, this function "fixes" the relative urls to be absolute according to the current page location.
- *
- * A rudimentary test suite is located at `test/fixUrls.js` and can be run via the `npm test` command.
- *
- */
-
-module.exports = function (css) {
-  // get current location
-  var location = typeof window !== "undefined" && window.location;
-
-  if (!location) {
-    throw new Error("fixUrls requires window.location");
-  }
-
-	// blank or null?
-	if (!css || typeof css !== "string") {
-	  return css;
-  }
-
-  var baseUrl = location.protocol + "//" + location.host;
-  var currentDir = baseUrl + location.pathname.replace(/\/[^\/]*$/, "/");
-
-	// convert each url(...)
-	/*
-	This regular expression is just a way to recursively match brackets within
-	a string.
-
-	 /url\s*\(  = Match on the word "url" with any whitespace after it and then a parens
-	   (  = Start a capturing group
-	     (?:  = Start a non-capturing group
-	         [^)(]  = Match anything that isn't a parentheses
-	         |  = OR
-	         \(  = Match a start parentheses
-	             (?:  = Start another non-capturing groups
-	                 [^)(]+  = Match anything that isn't a parentheses
-	                 |  = OR
-	                 \(  = Match a start parentheses
-	                     [^)(]*  = Match anything that isn't a parentheses
-	                 \)  = Match a end parentheses
-	             )  = End Group
-              *\) = Match anything and then a close parens
-          )  = Close non-capturing group
-          *  = Match anything
-       )  = Close capturing group
-	 \)  = Match a close parens
-
-	 /gi  = Get all matches, not the first.  Be case insensitive.
-	 */
-	var fixedCss = css.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi, function(fullMatch, origUrl) {
-		// strip quotes (if they exist)
-		var unquotedOrigUrl = origUrl
-			.trim()
-			.replace(/^"(.*)"$/, function(o, $1){ return $1; })
-			.replace(/^'(.*)'$/, function(o, $1){ return $1; });
-
-		// already a full url? no change
-		if (/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/)/i.test(unquotedOrigUrl)) {
-		  return fullMatch;
-		}
-
-		// convert the url to a full url
-		var newUrl;
-
-		if (unquotedOrigUrl.indexOf("//") === 0) {
-		  	//TODO: should we add protocol?
-			newUrl = unquotedOrigUrl;
-		} else if (unquotedOrigUrl.indexOf("/") === 0) {
-			// path should be relative to the base url
-			newUrl = baseUrl + unquotedOrigUrl; // already starts with '/'
-		} else {
-			// path should be relative to current directory
-			newUrl = currentDir + unquotedOrigUrl.replace(/^\.\//, ""); // Strip leading './'
-		}
-
-		// send back the fixed url(...)
-		return "url(" + JSON.stringify(newUrl) + ")";
-	});
-
-	// send back the fixed css
-	return fixedCss;
-};
 
 
 /***/ })
