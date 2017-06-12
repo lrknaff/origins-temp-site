@@ -1,8 +1,15 @@
-.hero { 
-  background-image: url('/lib/images/main-hero.png');
-  background-size: cover;
-  height: 100vh;
+.hero-container {
+  background-size: 100vw;
+  color: white;
+  max-height: 100vh;
+  overflow: hidden;
   position: relative;
+  width: 100%;
+
+  .hero-image {
+    width: 100%;
+    height: auto;
+  }
 }
 
 .intro {
