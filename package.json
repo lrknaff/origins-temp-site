@@ -4,7 +4,7 @@
   "description": "Origins Temp Site",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js",
+    "start": "webpack-dev-server --hot --inline",
     "build": "webpack",
     "test": "mocha"
   },

@@ -103,13 +103,16 @@
 
 footer {
   overflow: auto;
-  padding: 0 7% 7% 7%;
+  margin: 0 7% 7% 7%;
+  position: relative;
 
   .footer-left-container {
     float: left;
     width: 50%;
 
     .origin-logo-mark {
+      bottom: 0;
+      position: absolute;
       width: 65px;
     }
   }
@@ -121,3 +124,42 @@ footer {
 }
 
 /* mailchimp form */
+#mc_embed_signup {
+  margin-bottom: 50px;
+
+  #mc-embedded-subscribe-form {
+    padding: 0;
+
+    label {
+      font-family: $main-font;
+      font-weight: 400;
+      padding-bottom: 20px;
+    }
+
+    input[type="email"] {
+      background-color: $light-grey;
+      border: none;
+      border-radius: 0;
+      margin-bottom: 20px;
+      padding: 15px;
+      width: 100%;
+    }
+
+    input[type="submit"] {
+      background: url('/lib/images/right-arrow.svg') no-repeat 79px 10px;
+      background-color: white;
+      color: $dark-grey;
+      display: inline-block;
+      margin-bottom: 0;
+      font-weight: 700;
+      text-align: left;
+      text-transform: uppercase;
+      width: 105px;
+      vertical-align: middle;
+    }
+
+    .right-arrow {
+      vertical-align: middle;
+    }
+  }
+}

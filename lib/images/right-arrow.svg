@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="13px" viewBox="0 0 19 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>down arrow</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="landing-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="Desktop-HD-R3-2" transform="translate(-831.000000, -4570.000000)" stroke="#AB4224">
+            <g id="FOOTER" transform="translate(83.000000, 4418.000000)">
+                <g id="Group" transform="translate(646.000000, 0.000000)">
+                    <g id="down-arrow" transform="translate(111.500000, 158.500000) rotate(-90.000000) translate(-111.500000, -158.500000) translate(105.000000, 149.000000)">
+                        <path d="M6.5,0.5 L6.5,18.5" id="Line"></path>
+                        <path d="M6.5,18.5 L12.0226805,12.9773195" id="Line"></path>
+                        <path d="M6.5,18.5 L0.977319491,12.9773195" id="Line"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

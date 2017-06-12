@@ -1,6 +1,6 @@
 body {
   color: $dark-grey;
-  font-family: 'Montserrat', sans-serif;
+  font-family: $main-font;
   font-size: 100%;
   line-height: 1.75;
 }
@@ -27,6 +27,10 @@ h3 {
 
 p {
   font-size: 1em;
+}
+
+small {
+  font-size: 0.75em;
 }
 
 .bold-copy {
