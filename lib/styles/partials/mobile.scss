@@ -48,4 +48,46 @@
   h2 {
     font-size: 1.5em;
   }
+
+  .collection-container {
+
+    .collection-hero {
+      .collection-description {
+        height: 60px;
+
+        .origin-logotype {
+          width: 100px;
+        }
+
+        hr {
+          height: 55px;
+        }
+
+        h3 {
+          font-size: 1em;
+          line-height: 1;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  h2 {
+    font-size: 1.4em;
+    line-height: 1.4;
+  }
+
+  .collection-container {
+
+    .collection-header {
+      h2 {
+        font-size: 1.3em;
+      }
+
+      img {
+        width: 15px;
+      }
+    }
+  }
 }
