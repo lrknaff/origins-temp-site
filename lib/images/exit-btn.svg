@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="27px" height="27px" viewBox="0 0 27 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 44.1 (41455) - http://www.bohemiancoding.com/sketch -->
+    <title>close-X</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="landing-page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="modal" transform="translate(-1145.000000, -197.000000)" stroke="#FFFFFF">
+            <g id="close-X" transform="translate(1147.000000, 199.000000)">
+                <g id="Group">
+                    <path d="M0.23,0.23 L22.8870431,22.8870431" id="Line" stroke-width="2"></path>
+                    <path d="M0.23,0.23 L22.8870431,22.8870431" id="Line-Copy" stroke-width="2" transform="translate(11.500000, 11.500000) scale(1, -1) translate(-11.500000, -11.500000) "></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
