@@ -9935,6 +9935,15 @@ __webpack_require__(1);
 
 let $ = __webpack_require__(0);
 
+let redRocksDescriptions = {
+  1: "Description of the Red rocks photo",
+  2: "Description of the Red rocks photo",
+  3: "Description of the Red rocks photo",
+  4: "Description of the Red rocks photo"
+};
+
+console.log(redRocksDescriptions[1]);
+
 $(document).ready(function () {
 
   preloadImages = imageArray => {
@@ -9943,7 +9952,7 @@ $(document).ready(function () {
     });
   };
 
-  preloadImages(['/lib/images/red-rocks-gallery/1.png', '/lib/images/red-rocks-gallery/2.png', '/lib/images/lexington-gallery/1.png', '/lib/images/lexington-gallery/2.png']);
+  preloadImages(['/lib/images/red-rocks-gallery/1.png', '/lib/images/red-rocks-gallery/2.png', '/lib/images/red-rocks-gallery/3.png', '/lib/images/red-rocks-gallery/4.png', '/lib/images/lexington-gallery/1.png', '/lib/images/lexington-gallery/2.png', '/lib/images/lexington-gallery/3.png', '/lib/images/lexington-gallery/4.png', '/lib/images/raleigh-gallery/1.png', '/lib/images/raleigh-gallery/2.png', '/lib/images/raleigh-gallery/3.png', '/lib/images/raleigh-gallery/4.png', '/lib/images/westminster-gallery/1.png', '/lib/images/westminster-gallery/2.png', '/lib/images/westminster-gallery/3.png', '/lib/images/westminster-gallery/4.png']);
 
   showLightBox = picture => {
     let galleryTitle = picture.attr('id');
