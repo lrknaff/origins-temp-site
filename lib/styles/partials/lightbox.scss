@@ -70,5 +70,23 @@
       transform: rotate(180deg);
       width: 20px;
     }
+
+    .arrow-bg {
+      background-color: rgba(0,0,0,0.50);
+      bottom: 0;
+      height: 65px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      width: 45px;
+    }
+
+    .arrow-bg-right {
+      right: 0;
+    }
+
+    .arrow-bg-left {
+      left: 0;
+    }
   }
 }
