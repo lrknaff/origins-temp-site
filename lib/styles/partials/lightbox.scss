@@ -7,10 +7,17 @@
   width: 100%;
   z-index: 0;
 
+  .close-lightbox {
+    height: 100%;
+    overflow: auto;
+    position: fixed;
+    width: 100%;
+  }
+
   .lightbox-image-wrapper {
     box-shadow:0 0 25px #111;
-      -webkit-box-shadow:0 0 25px #111;
-        -moz-box-shadow:0 0 25px #111;
+    -webkit-box-shadow:0 0 25px #111;
+    -moz-box-shadow:0 0 25px #111;
     display: none;
     margin: 0 auto;
     max-width: 650px;
