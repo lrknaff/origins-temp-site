@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+hr {
+  background-color: #AB4224;
+  border-style: none;
+  height: 3px;
+  margin-bottom: 50px;
+  width: 75px;
+}
+
+.hero-wrapper {
+  background-size: 100vw;
+  color: white;
+  max-height: 100vh;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.hero-wrapper .hero-image {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.hero-wrapper .hero-copy {
+  bottom: 20px;
+  padding: 7%;
+  position: absolute;
+}
+.hero-wrapper .hero-copy .origin-logo-mark {
+  display: inline-block;
+  margin-right: 15px;
+  width: 80px;
+  vertical-align: middle;
+}
+.hero-wrapper .hero-copy h1 {
+  display: inline-block;
+  vertical-align: middle;
+}

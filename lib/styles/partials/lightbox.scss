@@ -7,10 +7,17 @@
   width: 100%;
   z-index: 0;
 
+  .close-lightbox {
+    height: 100%;
+    overflow: auto;
+    position: fixed;
+    width: 100%;
+  }
+
   .lightbox-image-wrapper {
     box-shadow:0 0 25px #111;
-      -webkit-box-shadow:0 0 25px #111;
-        -moz-box-shadow:0 0 25px #111;
+    -webkit-box-shadow:0 0 25px #111;
+    -moz-box-shadow:0 0 25px #111;
     display: none;
     margin: 0 auto;
     max-width: 650px;
@@ -62,6 +69,24 @@
       top: 0;
       transform: rotate(180deg);
       width: 20px;
+    }
+
+    .arrow-bg {
+      background-color: rgba(0,0,0,0.50);
+      bottom: 0;
+      height: 65px;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      width: 45px;
+    }
+
+    .arrow-bg-right {
+      right: 0;
+    }
+
+    .arrow-bg-left {
+      left: 0;
     }
   }
 }
