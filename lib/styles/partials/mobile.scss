@@ -32,9 +32,19 @@
 
 
 @media (max-width: 680px) {
-  .hero-copy {
-    h1 {
-      width: 65%;
+
+  .hero-wrapper {
+
+    .hero-copy {
+      h1 {
+        width: 65%;
+      }
+
+      .origin-inline-logotype {
+        background-size: 140px;
+        height: 47px;
+        width: 140px;
+      }
     }
   }
 
@@ -73,6 +83,27 @@
 }
 
 @media (max-width: 480px) {
+  .hero-wrapper {
+    .hero-copy {
+
+      .origin-logo-mark {
+        width: 70px;
+      }
+
+      .origin-inline-logotype {
+        background-size: 116px;
+        height: 39px;
+        margin-right: 10px;
+        width: 116px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+        width: 69%;
+      }
+    }
+  }
+
   h2 {
     font-size: 1.4em;
     line-height: 1.4;

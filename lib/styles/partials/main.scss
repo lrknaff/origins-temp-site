@@ -24,6 +24,15 @@
       vertical-align: middle;
     }
 
+    .origin-inline-logotype {
+      background: url('/lib/images/logotype.svg') no-repeat bottom left;
+      background-size: 157px;
+      display: inline-block;
+      height: 52px;
+      margin-right: 14px;
+      width: 157px;
+    }
+
     h1 {
       display: inline-block;
       vertical-align: middle;
