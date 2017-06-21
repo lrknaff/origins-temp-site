@@ -9944,7 +9944,7 @@ $(document).ready(function () {
     return imageArray;
   };
 
-  let imageArray = preloadImages(['/lib/images/red-rocks-gallery/1.jpg', '/lib/images/red-rocks-gallery/2.jpg', '/lib/images/red-rocks-gallery/3.jpg', '/lib/images/red-rocks-gallery/4.jpg', '/lib/images/lexington-gallery/1.jpg', '/lib/images/lexington-gallery/2.jpg', '/lib/images/lexington-gallery/3.jpg', '/lib/images/lexington-gallery/4.jpg', '/lib/images/lexington-gallery/5.jpg', '/lib/images/raleigh-gallery/1.jpg', '/lib/images/raleigh-gallery/2.jpg', '/lib/images/raleigh-gallery/3.jpg', '/lib/images/westminster-gallery/1.jpg', '/lib/images/westminster-gallery/2.jpg']);
+  let imageArray = preloadImages(['/lib/images/red-rocks-gallery/1.jpg', '/lib/images/red-rocks-gallery/2.jpg', '/lib/images/red-rocks-gallery/3.jpg', '/lib/images/lexington-gallery/1.jpg', '/lib/images/lexington-gallery/2.jpg', '/lib/images/lexington-gallery/3.jpg', '/lib/images/lexington-gallery/4.jpg', '/lib/images/lexington-gallery/5.jpg', '/lib/images/raleigh-gallery/1.jpg', '/lib/images/raleigh-gallery/2.jpg', '/lib/images/westminster-gallery/1.jpg', '/lib/images/westminster-gallery/2.jpg']);
 
   showLightBox = picture => {
     let galleryTitle = picture.attr('id');
