@@ -4,7 +4,7 @@
   "description": "Origins Temp Site",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "webpack-dev-server --hot --inline",
     "build": "webpack",
     "test": "mocha"
   },
@@ -21,7 +21,7 @@
   "dependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.0.0",
-    "body-parser": "^1.16.1",
+    "body-parser": "^1.16.1git ",
     "chai": "^4.0.2",
     "css-loader": "^0.28.4",
     "express": "^4.14.1",
