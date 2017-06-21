@@ -91,8 +91,14 @@
 
       .origin-logotype {
         display: inline-block;
-        width: 175px;
+        -webkit-filter: drop-shadow(0px 0px 19px rgba(0, 0, 0, 0.45));
+          filter: drop-shadow(0px 0px 19px rgba(0, 0, 0, 0.45));
+        width: 195px;
         vertical-align: middle;
+      }
+
+      h6 {
+        font-size: 1.5em;
       }
 
       hr {
@@ -102,6 +108,7 @@
         margin: 0 10px;
         width: 5px;
         vertical-align: middle;
+        box-shadow: 0px 0px 19px rgba(0, 0, 0, 0.45);
       }
 
       .origin-location-copy {
@@ -120,6 +127,8 @@
 
     .photo-icon {
       display: inline-block;
+      -webkit-filter: drop-shadow(0px 0px 19px rgba(0, 0, 0, 0.45));
+        filter: drop-shadow(0px 0px 19px rgba(0, 0, 0, 0.45));
       width: 30px;
       vertical-align: middle;
       margin-right: 10px;
