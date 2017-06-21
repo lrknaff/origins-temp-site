@@ -59,6 +59,11 @@
     font-size: 1.5em;
   }
 
+  h6 {
+    font-size: 1em;
+    line-height: 1.4;
+  }
+
   .collection-container {
 
     .collection-hero {
@@ -66,15 +71,16 @@
         height: 60px;
 
         .origin-logotype {
-          width: 100px;
+          width: 110px;
         }
 
         hr {
           height: 55px;
+          width: 3px;
         }
 
         h3 {
-          font-size: 1em;
+          font-size: 1.1em;
           line-height: 1;
         }
       }
