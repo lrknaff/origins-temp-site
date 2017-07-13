@@ -1,10 +1,4 @@
 const path = require('path')
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
-//
-// const PATHS = {
-//   app: path.join(__dirname, 'lib'),
-//   build: path.join(__dirname, 'build')
-// }
 
 module.exports = {
   entry: {
@@ -27,14 +21,4 @@ module.exports = {
             }] }
     ]
   }
-  // plugins: [
-  //   new HtmlWebpackPlugin({
-  //     template: PATHS.build + 'index.html',
-  //     title: 'Origin',
-  //     inject: 'body'
-  //   })
-  // ],
-  // resolve: {
-  //   extensions: ['', '.js', '.json', '.scss', 'css']
-  // }
 }

@@ -1,6 +1,9 @@
 {
   "name": "origins-temp-site",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.11.1"
+  },
   "description": "Origins Temp Site",
   "main": "index.js",
   "scripts": {
