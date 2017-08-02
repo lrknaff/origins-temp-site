@@ -7,7 +7,7 @@
   "description": "Origins Temp Site",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline",
+    "start": "noder server.js",
     "build": "webpack",
     "test": "mocha"
   },
