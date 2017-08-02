@@ -127,4 +127,21 @@
       }
     }
   }
+
+  .contact-form {
+    #mc_embed_signup {
+      .mc-field-group {
+        padding-bottom: 8%;
+      }
+
+      .mc-field-group.half-width {
+        width: 96%;
+        display: block;
+      }
+
+      .mc-field-group.margin-right {
+        margin-right: 0px;
+      }
+    }
+  }
 }
